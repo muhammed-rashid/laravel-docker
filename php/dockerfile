@@ -5,12 +5,16 @@ FROM php:8.2-fpm
 RUN apt-get update && \
     apt-get install zip unzip
 
+RUN docker-php-ext-install pdo pdo_mysql
 # Set the working directory inside the container
 WORKDIR /var/www/html
 
 # Copy Composer binary from Composer image (version 2) to container
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Install PHP extensions required for Laravel (pdo, pdo_mysql)
-RUN docker-php-ext-install pdo pdo_mysql
+
+
+
+
+
 

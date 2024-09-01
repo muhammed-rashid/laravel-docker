@@ -3,7 +3,8 @@ RUN apt-get update
 RUN apt-get install -y nginx
 WORKDIR /var/www/html
 
-
+# Create storage and bootstrap/cache directories
+RUN mkdir -p /var/www/html/storage /var/www/html/bootstrap/cache
 
 
 CMD nginx -g "daemon off;"
